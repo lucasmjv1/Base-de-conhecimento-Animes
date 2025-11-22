@@ -127,21 +127,19 @@ function closeModal(){
 }
 
 function setupCarousel(list){
-    const picks=list.filter(i=>i.capa_url).slice(0,6);
+    const picks=list.filter(i=>i.banner).slice(0,6);
     carouselTrack.innerHTML='';
 
     picks.forEach(p=>{
-        const d = document.createElement('div');
-d.className = 'carousel-item';
+        const d=document.createElement('div');
+        d.className='carousel-item';
 
-const img = document.createElement('img');
-img.src = p.capa_url;
-img.alt = p.nome;
-img.loading = "lazy";
+        const img=document.createElement('img');
+        img.src=p.banner;
+        img.alt=p.nome;
+        img.loading='lazy';
 
-d.appendChild(img);
-carouselTrack.appendChild(d);
-
+        d.appendChild(img);
 
         d.dataset.title=p.nome;
         d.dataset.meta=`${p.ano||''} • ${p.autor||''}`;
