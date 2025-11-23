@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Base de Conhecimentos de Animes</title>
   <link rel="icon" type="image/png" href="img_animes.png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <title>Base de Conhecimentos de Animes</title>
 </head>
 <body>
   <header class="site-header">
@@ -15,18 +15,18 @@
         <img src="img_animes.png" alt="" class="brand-img">
         <h1>Base de Conhecimentos de Animes</h1>
       </div>
-      <form class="search" onsubmit="return false;">
+      <form class="search" onsubmit="return false;"> <!--barra de pesquisa todos sabemos-->
         <input id="searchInput" type="search" placeholder="Pesquisar anime, autor ou sinopse">
         <button id="searchBtn" type="button">Buscar</button>
       </form>
     </div>
   </header>
 
-  <section id="hero" class="hero">
-    <div class="carousel">
+  <section id="hero" class="hero"> 
+    <div class="carousel"> <!--cria o carrossel de imagens abaixo da pesquisa-->
       <div class="carousel-track"></div>
       <div class="carousel-overlay">
-        <div class="carousel-text">
+        <div class="carousel-text"> <!--colocar nome no carrossel-->
           <h2 id="heroTitle"></h2>
           <p id="heroMeta"></p>
         </div>
@@ -37,7 +37,7 @@
   <main>
     <section class="controls">
       <div class="controls-left">
-        <select id="filterGenre">
+        <select id="filterGenre"> <!--filtrar por gênero "ainda em teste"-->
           <option value="all">Todos</option>
         </select>
       </div>
@@ -49,11 +49,11 @@
     <section class="card-container" aria-live="polite"></section>
 
     <div class="more-wrapper">
-      <button id="loadMore" class="primary">Carregar mais</button>
+      <button id="loadMore" class="primary">Carregar mais</button> <!--carregar mais animes "é melhor buscar pesquisando"-->
     </div>
   </main>
 
-  <div id="modal" class="modal" aria-hidden="true">
+  <div id="modal" class="modal" aria-hidden="true"><!--basicamente todas as informações dos cards-->
     <div class="modal-content">
       <button id="modalClose" class="modal-close">✕</button>
       <div class="modal-body">

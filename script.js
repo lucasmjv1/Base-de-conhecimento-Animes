@@ -1,19 +1,26 @@
-const container=document.querySelector('.card-container');
-const searchInput=document.getElementById('searchInput');
-const searchBtn=document.getElementById('searchBtn');
-const loadMoreBtn=document.getElementById('loadMore');
-const clearBtn=document.getElementById('clearBtn');
-const filterGenre=document.getElementById('filterGenre');
-const carouselTrack=document.querySelector('.carousel-track');
-const heroTitle=document.getElementById('heroTitle');
-const heroMeta=document.getElementById('heroMeta');
-const modal=document.getElementById('modal');
-const modalClose=document.getElementById('modalClose'); 
-const modalImg=document.getElementById('modalImg');
-const modalTitle=document.getElementById('modalTitle');
-const modalMeta=document.getElementById('modalMeta');
-const modalSinopse=document.getElementById('modalSinopse');
-const modalLinks=document.getElementById('modalLinks');
+// --- ELEMENTOS DA LISTAGEM ---
+const container = document.querySelector('.card-container'); // Onde os cards são renderizados
+const loadMoreBtn = document.getElementById('loadMore'); // Botão de paginação
+
+// --- BUSCA E FILTROS ---
+const searchInput = document.getElementById('searchInput'); // Campo de texto
+const searchBtn = document.getElementById('searchBtn');     // Botão de lupa
+const clearBtn = document.getElementById('clearBtn');       // Botão limpar
+const filterGenre = document.getElementById('filterGenre'); // Select de gêneros
+
+// --- CARROSSEL (BANNER TOPO) ---
+const carouselTrack = document.querySelector('.carousel-track'); // Trilho das imagens
+const heroTitle = document.getElementById('heroTitle');          // Título do banner
+const heroMeta = document.getElementById('heroMeta');            // Subtítulo do banner
+
+// --- MODAL (POP-UP DE DETALHES) ---
+const modal = document.getElementById('modal');               // Container principal do modal
+const modalClose = document.getElementById('modalClose');     // Botão X de fechar
+const modalImg = document.getElementById('modalImg');         // Imagem da capa no modal
+const modalTitle = document.getElementById('modalTitle');     // Título no modal
+const modalMeta = document.getElementById('modalMeta');       // Info (Ano/Autor)
+const modalSinopse = document.getElementById('modalSinopse'); // Texto da sinopse
+const modalLinks = document.getElementById('modalLinks');     // Área dos botões de assistir
 
 let dataList=[];
 let renderedCount=0;
@@ -23,7 +30,7 @@ let carouselIndex=0;
 function fetchData(){return fetch('data.json').then(r=>r.json())}
 function safeText(t){return t?t:''}
 
-function createPlatformIcon(name){
+function createPlatformIcon(name){ //links das imagens das logos 
     const map={
         "crunchyroll":'https://i.pinimg.com/736x/dc/94/4a/dc944a8bb35207a237778d0f4f5d02a3.jpg',
         "netflix":'https://i.pinimg.com/1200x/72/a0/50/72a0500ff35991d147a6b48e4bffc721.jpg',
@@ -33,7 +40,7 @@ function createPlatformIcon(name){
         "funimation":'https://i.pinimg.com/736x/fe/fd/e0/fefde04fd9d45e8f1b98d33810e8c73d.jpg'
     };
     const key=name.toLowerCase().replace(/\s/g,'');
-    return map[key]||'https://cdn-icons-png.flaticon.com/512/109/109613.png';
+    return map[key]||'';
 }
 
 function renderCards(list,reset=false){
